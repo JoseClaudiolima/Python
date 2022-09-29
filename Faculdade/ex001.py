@@ -1,19 +1,30 @@
-n1 = int(input(f'Digite um valor: '))
-n2 = int(input(f'Digite outro valor: '))
-if n1 > n2:
-    print(f'{n1} é maior que {n2}')
-else:
-    print(f'{n1} é menor que {n2}')
-if n1 > 1:
-    print(f'{n1} é maior que 1')
-    if n1 > 2:
-        print(f'{n1} é maior que 2')
-        if n1 > 3:
-            print(f'{n1} é maior que 3')
+from time import sleep
+import os
 
-elif n1 > 1:
-    print(f'\n{n1} é maior que 1')
-elif n1 > 2:
-    print(f'\n{n1} é maior que 2')
-elif n1 > 3:
-    print(f'\n{n1} é maior que 3')
+for i in range(10):
+    print(i)
+
+sleep(3)
+os.system('cls') or None
+
+for i in range(10, 20):
+    print(i)
+
+sleep(3)
+os.system('cls') or None
+
+for i in range(10, 150, 27):
+    print(i)
+    if i % 2 == 0:
+        print("par\n")
+    else:
+        print("impar\n")
+
+sleep(4)
+os.system('cls') or None
+
+i = 1
+while i % 2 != 0:
+    i = int(input(f'Digite o valor de i: '))
+else:
+    print('Digitou par, e saiu do looping!')

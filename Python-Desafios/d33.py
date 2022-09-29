@@ -1,6 +1,3 @@
-from re import A
-
-
 n1 = int(input(f'Digite um número: '))
 n2 = int(input(f'Digite um número: '))
 n3 = int(input(f'Digite um número: '))
