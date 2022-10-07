@@ -18,11 +18,16 @@ nmr = int(input(f'Escolha um número para ser convertido:\t'))
 n_ini = nmr
 empty = ''
 
-escolha = int(input(f'''\nEscolha qual conversão deseja para o número {nmr}
-1 para binário
-2 para octal
-3 para hexadecimal
-'''))
+escolha = 55
+while escolha < 1 or escolha > 3:
+    escolha = int(input(f'''\nEscolha qual conversão deseja para o número {nmr}
+    1 para binário
+    2 para octal
+    3 para hexadecimal
+    
+    '''))
+
+    os.system('cls') or None
 
 
 res = []
