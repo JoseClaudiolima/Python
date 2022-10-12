@@ -4,13 +4,15 @@ from random import randint
 system('cls') or None
 
 consec = 0
-while True:
 
+while True:
+    pi = 'a'
     print('-=' * 20)
     print(f'VAMOS JOGAR PAR OU ÍMPAR')
     print('-=' * 20)
 
-    pi = input(f'Par ou Ímpar? [P/I] ')
+    while pi not in 'PI':
+        pi = input(f'Par ou Ímpar? [P/I] ').strip().upper()
     n = int(input(f'Digite um valor [1 a 5] : '))
     nbot = randint(1, 6)
 
@@ -19,18 +21,18 @@ while True:
 
     if (n + nbot) % 2 == 0:
         print('PARES ganharam!')
-        if pi.strip().upper() == 'P':
+        if pi == 'P':
             print(f'\nVocê venceu!\nVamos jogar novamente...')
             consec += 1
-        elif pi.strip().upper() == 'I':
+        elif pi == 'I':
             print(f'\nGAME OVER! Você venceu {consec} vezes.')
             break
     else:
         print('ÍMPARES ganharam!')
-        if pi.strip().upper() == 'I':
+        if pi == 'I':
             print(f'\nVocê venceu!\nVamos jogar novamente...')
             consec += 1
-        elif pi.strip().upper() == 'P':
+        elif pi == 'P':
             print(f'\nGAME OVER! Você venceu {consec} vezes.')
             break
 

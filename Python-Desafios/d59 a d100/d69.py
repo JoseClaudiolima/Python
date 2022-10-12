@@ -4,7 +4,7 @@ system('cls') or None
 
 genero = ['F', 'M']
 usu = 'a'
-m18 = h = f = f18 = c = 0
+m18 = h = f = f20 = c = 0
 while True:
     i = randint(14, 30)
     sex = choice(genero)
@@ -18,8 +18,8 @@ while True:
         h += 1
     else:
         f += 1
-        if i <= 18:
-            f18 += 1
+        if i <= 20:
+            f20 += 1
 
     c += 1
 
@@ -31,4 +31,4 @@ while True:
     system('cls') or None
 
 print(
-    f'Pessoas maiores de 18: {m18} pessoas\nHomens cadastrados: {h} homens\nMulheres menor de 18 cadastradas: {f18} mulheres\n')
+    f'Pessoas maiores de 18: {m18} pessoas\nHomens cadastrados: {h} homens\nMulheres menor de 20 cadastradas: {f20} mulheres\n')

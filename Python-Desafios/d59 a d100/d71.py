@@ -1,6 +1,9 @@
 from os import system
 system('cls') or None
 
+print('=' * 30)
+print(' ' * 10, 'Banco JJ')
+print('=' * 30)
 n = int(input(f'Digite o valor que deseja sacar: '))
 nini = n
 a = n50 = n20 = n10 = n2 = n1 = 0
@@ -30,8 +33,8 @@ while n > 0:
         n1 += a
 
 print(f'''Para sacar {nini}, você receberá:
-{n50} nota(s) ({n50*50}) de 50,00
-{n20} nota(s) ({n20*20}) de 20,00
-{n10} nota(s) ({n10*10}) de 10,00
-{n2} nota(s) ({n2*2}) de 2,00
-{n1} nota(s) ({n1*2}) de 1,00''')
+{n50} nota(s) de 50,00\t({n50*50})
+{n20} nota(s) de 20,00\t({n20*20})
+{n10} nota(s) de 10,00\t({n10*10})
+{n2} nota(s) de 2,00\t({n2*2})
+{n1} nota(s) de 1,00\t({n1*1})''')

@@ -1,6 +1,5 @@
 from os import system
-from time import sleep
-from random import randint, choice
+from random import randint
 system('cls') or None
 
 s = p1000 = pbarato = nbarato = 0
@@ -33,6 +32,6 @@ while True:
         p1000 += 1
     s += p
 
-print('-' * 10, 'FIM DAS COMPRAS', '-' * 10)
+print('\n', '-' * 10, 'FIM DAS COMPRAS', '-' * 10)
 print(
     f'O total da compra foi: {s:.2f}\nTemos {p1000} produtos custando acima de 1000.00\nO produto mais barato foi {nbarato} custando {pbarato:.2f}')

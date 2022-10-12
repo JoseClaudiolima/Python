@@ -13,5 +13,7 @@ while True:
         print(f'{n} * {i+1} = {n*(i+1)}')
     print('-'*40)
 
-    sleep(2)
+    sleep(3)
     system('cls') or None
+
+print(f'Programa finalizado!')
