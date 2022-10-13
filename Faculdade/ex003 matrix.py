@@ -1,6 +1,5 @@
 from os import system
 from random import randint
-from time import sleep
 system('cls') or None
 
 array = [[],
