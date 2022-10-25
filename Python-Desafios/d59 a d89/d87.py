@@ -16,9 +16,11 @@ for i in range(3):
         if i == 1 and entrada > maior2l:
             maior2l = entrada
 print('-='*30)
-print(array[0])
-print(array[1])
-print(array[2])
+for i in range (3):
+    for j in range(3):
+        print(f'[{array[i][j]:^5}]',end='')
+    print()
+
 print('-='*30)
 print(f'A soma dos valores pares é {somapar}')
 print(f'A soma dos valores da terceira coluna é {soma3}')

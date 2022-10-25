@@ -18,11 +18,12 @@ while True:
     if r in 'Nn':
         break
 print('-='*30)
-print(f'RA.     NOME       MÉDIA')
+#print(f'RA.     NOME       MÉDIA')
+print(f'{"RA":<6}{"NOME":<10}{"MÉDIA":>9}')
 print('-'*30)
 for k in range (len(array)):
     media = str((array[k][1][0]+array[k][1][1])/2)
-    print(k,' '*6,array[k][0],media.rjust(12, ' '))
+    print(f'{k:<6}{array[k][0]:<10}{array[k][1][1]:>8.1f}')
 print('-='*30)
 while True:
     n = int(input(f'Mostrar notas de qual aluno? (999 interrompe): '))
