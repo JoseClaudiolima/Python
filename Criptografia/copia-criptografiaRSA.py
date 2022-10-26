@@ -65,19 +65,33 @@ def rsa ():
     msg = 'Exemplo qualquer'
 
     #Escolheu dois números primos, podemos fazer outra função que gere aleatóriamente um número primo, esses dois números são a base da nossa criptografia.
-    p = 17
-    q = 19
-    n = p * q #697   
+    p = 107
+    q = 109
+    n = p * q #323   
 
-    #Este n é o tamanho do nosso conjunto. É necessário termos um conjunto finito de valores para que possamos fazer o caminho inverso ao realizado para cifrar nossa mensagem. Podemos, chamar nosso conjunto de 697.
+    #Este n é o tamanho do nosso conjunto. É necessário termos um conjunto finito de valores para que possamos fazer o caminho inverso ao realizado para cifrar nossa mensagem. Podemos, chamar nosso conjunto de 323.
 
 
-    # Daqui para frente é a função totiente, totiente de n (697)
+    # Daqui para frente é a função totiente, totiente de n (323)
     # Totiente significa: a quantidade de co-primos de um numero que são menores que ele mesmo.
     # O totiente são os dois números primos escolhidos menos 1 cada, seguido de multiplicação 
     #(x) = (p - 1) * (q - 1)
     
     totiente = (p - 1) * (q - 1)
 
+    #Ao chamar a função de chave publica com o parâmetro de totiente, estamos pedindo que gere um número primo aleatório.
     e = chave_publica(totiente)
 
+    print(f'Chave publica: ({e},{n})')
+    #
+    d = chave_privada(totiente,e)
+    print(f'Chave privada: ({d},{n})')
+
+    msg = cifrar(msg,e,n)
+    print(f'Mensagem Cifrada: {msg}')
+
+    msg = decifrar(msg,n,d)
+    print(f'Mensagem Decifrada: {msg}')
+
+rsa()
+print(f'Deu certo')
