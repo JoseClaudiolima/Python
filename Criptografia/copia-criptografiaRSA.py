@@ -22,16 +22,16 @@ def mdc(a,b):
     return maior
     
 
-# A função da chave pública gera um número aleatório e enquanto o mdc entre o número aleatório e o parâmetro não for igual a 1, ele continua gerando outro número aleatório. E no final retorna aquele que o mdc é igual a 1
+# A função gera um número aleatório que seja acima de 1 e menor que o conjunto n (que é o tamanho de conjunto das nossas chaves privadas), além disso o número precisa ser co-primo de n, por isso é feito um looping para que o numero tenha mdc entre ele e n igual a 1.
 
-# É necessário colocar a verificação de mdc igual a 1 , pois desta forma garante que o número aleatório gerado será número primo. 
-# Lembrando que Números primos são aqueles divisíveis apenas por 1 e por eles mesmos.
-def chave_publica(n): 
+# Anotação: Números co-primos são aqueles números, que entre ELES não há divisor comum além de 1 (mdc entre eles é 1).
+
+def chave_publica(n):
     while True:
         e = random.randrange(2,n)
         if mdc(n,e) == 1:
             return e
-
+#se e for '145' a msg cifragem é igual a msg decifrada, e se for '127' mesmo a chave privada sendo igual a chave publica, isso não acontece. isso se n for 323
 
 
 
@@ -43,7 +43,10 @@ def chave_privada(totiente, e):
     return d
 
 
-#Pesquisar depois
+#A cifragem em RSA, é feita letra a letra pela seguinte equação: lcifra = l ** chavepub % n
+
+#Para realizar a cifragem, temos que ter definido a mensagem, chave publica (que é a de ciptografia)  o conjunto n.
+# Tendo isso podemos aplicar a formula acima, porém a lógica por de trás dessa função é: transformamos letra a letra por vez em um número, e após isso combinamos (com exponenciação) com a chave publica, com isso o numero da letra cifrada aumentará muito podendo até passar do conjunto n estabelecido, para resolver esse problema, é necessário pegar o resto da divisão da letra cifrada com o conjunto, por fim temos a letra cifrada dentro do conjunto estabelecido.
 def cifrar(mensagem,e,n):
     msg_cifrada = ''
     for letra in mensagem:
@@ -51,7 +54,8 @@ def cifrar(mensagem,e,n):
         msg_cifrada += chr(k)
     return msg_cifrada
 
-#Pesquisar depois
+
+#Para decifrar é feito a mesma logíca, e equacação da cifragem, entretanto usamos a chave privada em vez da chave publica
 def decifrar(mensagem,n,d):
     msg_decifrada = ''
     for letra in mensagem:
@@ -62,11 +66,11 @@ def decifrar(mensagem,n,d):
 
 
 def rsa ():
-    msg = 'Exemplo qualquer'
+    msg = 'Você é pica, José!'
 
-    #Escolheu dois números primos, podemos fazer outra função que gere aleatóriamente um número primo, esses dois números são a base da nossa criptografia.
-    p = 107
-    q = 109
+    #Escolheu a chave privada, quando escolheu esses numeros primos
+    p = 211 #211
+    q = 191 #191
     n = p * q #323   
 
     #Este n é o tamanho do nosso conjunto. É necessário termos um conjunto finito de valores para que possamos fazer o caminho inverso ao realizado para cifrar nossa mensagem. Podemos, chamar nosso conjunto de 323.
