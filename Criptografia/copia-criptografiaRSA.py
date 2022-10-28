@@ -1,6 +1,6 @@
 import random
 from os import system
-system('cls') or None
+system('cls') or None # é para limpar o terminal só
 
 
 #Essa função retorna o mdc entre dois valores, usando o algoritmo de Euclides

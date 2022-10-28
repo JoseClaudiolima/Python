@@ -8,7 +8,7 @@ m=0
 mulheres=''
 while True:
     dict['nome'] = input(f'Nome: ')
-    dict['genero'] = input(f'Genero: [M/F] ')
+    dict['genero'] = input(f'Genero: [M/F] ').upper()
     dict['idade'] = randint(18,40)
     array.append(dict.copy())
 
@@ -40,3 +40,4 @@ print(f'Lista das pessoas que estão acima da média de idade:')
 
 for j in range(len(end_array)):
     print(end_array[j])
+    
