@@ -12,7 +12,7 @@ gols = []
 for j in range(partidas):
     gols.append(int(input(f'Quantos gols na partida {j+1}? ')))
 dict['gols'] = gols
-dict['total'] = 6
+dict['total'] = sum(gols)
 system('cls') or None
 print('-='*30)
 print(f'O campo nome tem o valor',dict['nome'])
@@ -25,5 +25,4 @@ t=0
 print(f'O jogador',dict['nome'],'jogou',len(dict['gols']), 'partidas.')
 for i in range (len(dict['gols'])):
     print(f'    => Na partida {[i+1]}, fez,',dict['gols'][i],'gols.')
-    t+=dict['gols'][i]
-print(f'Foi um total de {t} gols.')
+print(f'Foi um total de {sum(gols)} gols.')

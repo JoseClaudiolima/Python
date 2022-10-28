@@ -8,7 +8,10 @@ m=0
 mulheres=''
 while True:
     dict['nome'] = input(f'Nome: ')
-    dict['genero'] = input(f'Genero: [M/F] ').upper()
+    gen = input(f'Genero: [M/F] ').upper()
+    while gen not in 'MF':
+            gen = input(f'Genero: [M/F] ').upper()
+    dict['genero'] = gen
     dict['idade'] = randint(18,40)
     array.append(dict.copy())
 
@@ -37,7 +40,6 @@ print(f'- O grupo tem {len(array)} pessoas.')
 print(f'- A média de idade é de {m/len(array):.2f}')
 print(f'As mulheres cadastradas foram: {mulheres}')
 print(f'Lista das pessoas que estão acima da média de idade:')
-
 for j in range(len(end_array)):
     print(end_array[j])
     
