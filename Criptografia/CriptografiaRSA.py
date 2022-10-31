@@ -1,18 +1,25 @@
 import random
-from os import system
-system('cls') or None # é para limpar o terminal só
+
+print('Bem vindo ao nosso código de criptografia!')
+print('[1] - Criptografar')
+print('[2] - Decriptografar')
+decisao = input('Sua escolha: ')
+
+while decisao.isnumeric() is False or int(decisao) <1 or int(decisao) >2:
+    print(f'Atenção, as opções são [1] e [2] ')
+    decisao = input(f'''[1] - Criptografar
+[2] - Decriptografar
+Sua escolha: ''')
+decisao = int(decisao)
+
 
 
 #Essa função retorna o mdc entre dois valores, usando o algoritmo de Euclides
 
 #Porém antes de calcular o algoritmo de Euclides, é feito uma comparação entre os valores entrados para saber qual é o maior valor, coloquei a comparação caso no futuro queira colocar números aleatórios ae. mas acho que não vamos usar. 
 def mdc(a,b): 
-    if a >b:
-        maior = a
-        menor = b
-    else:
-        maior = b
-        menor = a
+    maior = a
+    menor = b
     menorcopia = menor
 
     while menor !=0:
@@ -32,14 +39,11 @@ def chave_publica(n):
         e = random.randrange(2,n)
         if mdc(n,e) == 1 and e !=145:
             return e
-#se e for '145' a msg cifragem é igual a msg decifrada, e se for '127' mesmo a chave privada sendo igual a chave publica, isso não acontece. isso se n for 323 (p=17 q=19)
 
 
 
-#Pesquisar depois sobre Inverso multiplicativo, inverso multiplicativo é o número mutiplicado para o resultado ser 1. ou seja, 10 . y = 1 --> y = 0,1......5 . y = 1 --> y = 0,5
-
-#Achei complexo e não entendi, ele usou algoritmo de euclides estendidio para calcular o inverso multiplicativo de 'e' em uma equação estranha.
-#link :lambda3.com.br/2013/01/entendendo-de-verdade-a-criptografia-rsa-parte-iii/
+#O objetivo de implementar o algoritmo estendido de euclides eh obter o valor de "d" para realizar o processo de decifrar a mensagem desejada.
+#O algoritmo de euclides estendido serve para realizar o inverso do mdc para descriptografar a mensagem.
 def chave_privada(totiente, e):
     d = 0
     while ((d* e) % totiente != 1):
@@ -69,19 +73,16 @@ def decifrar(mensagem,n,d):
 
 
 
-def rsa ():
-    msg = 'Deu bom, confia'
+def rsa (msg):
+    #Escolhemos a chave privada, quando escolhemos esses numeros primos
+    p = 211
+    q = 191 
+    n = p * q #40301   
 
-    #Escolheu a chave privada, quando escolheu esses numeros primos
-    p = 211 #211 , 19
-    q = 191 #191 , 17
-    n = p * q #323   
-
-    #Este n é o tamanho do nosso conjunto. No site diz que "É necessário termos um conjunto finito de valores para que possamos fazer o caminho inverso ao realizado para cifrar nossa mensagem". Podemos, chamar nosso conjunto de 323.
+    #Este n é o tamanho do nosso conjunto. No site diz que "É necessário termos um conjunto finito de valores para que possamos fazer o caminho inverso ao realizado para cifrar nossa mensagem". Podemos, chamar nosso conjunto de 40301.
 
 
-    # Daqui para frente é a função totiente, totiente de n (323)
-    #youtube.com/watch?v=3MryVNzS3o4&ab_channel=KhanAcademyBrasil explica totiente de forma facil
+    # Daqui para frente é a função totiente, totiente de n (40301)
     # Totiente significa: a quantidade de co-primos de um numero que são menores que ele mesmo.
     # O totiente de dois numeros primos são os dois números escolhidos menos 1 cada, seguido de multiplicação 
     #Φ(x) = (p - 1) * (q - 1)
@@ -92,7 +93,7 @@ def rsa ():
     e = chave_publica(totiente)
 
     print(f'Chave publica: ({e},{n})')
-    #
+    
     d = chave_privada(totiente,e)
     print(f'Chave privada: ({d},{n})')
 
@@ -102,4 +103,25 @@ def rsa ():
     msg = decifrar(msg,n,d)
     print(f'Mensagem Decifrada: {msg}')
 
-rsa()
+if decisao ==1: #se o usuário escolheu decifrar, assim ele terá
+    msg = input(f'Digite a mensagem a ser criptografada: ')
+    print()
+    rsa(msg)
+
+else: #tem verificação se o que o usuário digitou valores númericos para as chaves númericas e de conjunto n, e também se são positivas.
+      #Após isso faz chamadas para a função decifrar com os parâmetros fornecidos, que são: 'mensagem', 'conjunto n' e 'chave privada'.
+    msg = input(f'Digite a exata mensagem que deseja descriptografar: ')
+    n = input(f'Digite o tamanho exato do conjunto das chaves usadas: ')
+    while n.isnumeric() is False or int(n) < 1:
+        print('Atenção!')
+        n = input(f'Digite o tamanho exato do conjunto das chaves usadas: ')
+    n = int(n)
+
+    d = input(f'Digite a exata chave privada: ')
+    while d.isnumeric() is False or int(d) <1:
+        print('Atenção!')
+        d = input(f'Digite a exata chave privada: ')
+    d = int(d)
+    print()
+    print('A mensagem decriptografada é:',decifrar(msg,n,d))
+    
