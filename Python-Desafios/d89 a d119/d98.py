@@ -7,8 +7,8 @@ def cabecalho():
         print(f'Contagem de 1 até 10 de 1 em 1')
         i=1
         while i <11:
-            #sleep(.3)
-            print(i,end=' ')
+            sleep(.3)
+            print(i,end=' ',flush=True)
             i+=1
         print('FIM!')
 
@@ -16,8 +16,8 @@ def cabecalho():
         print(f'Contagem de 10 até 1 de 2 em 2')
         i=10
         while i >=0:
-            #sleep(.3)
-            print(i,end=' ')
+            sleep(.3)
+            print(i,end=' ',flush=True)
             i-=2
         print('FIM!')
         print('-='*20)
