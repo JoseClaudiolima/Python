@@ -7,9 +7,10 @@ def voto(a):
         print(f'Não pode votar')
     elif a <=17:
         print(f'Voto Opcional')
-    elif a>=18:
+    elif a>18 and a <65:
         print(f'Você é OBRIGADO a votar, não tem liberdade de não ir para as urnas.')
-
+    elif a >65:
+        print(f'Voto Opcional')
 
 anoatual = date.today().year
 idade = anoatual - int(input(f'Em que ano vc nasceu? '))

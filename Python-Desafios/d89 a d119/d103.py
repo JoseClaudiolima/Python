@@ -7,7 +7,7 @@ system('cls') or None
 def ficha(nome=0,gols=0):
     if nome ==0 or nome == '':
         nome = '<desconhecido>'
-    if gols == '':
+    if gols == '' or gols.isnumeric() is False:
         gols = 0
     print(f'O jogador {nome} fez {gols} gol(s) no campeonato.')
 

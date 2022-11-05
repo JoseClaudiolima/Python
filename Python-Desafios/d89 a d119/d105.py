@@ -3,21 +3,16 @@ from random import randint
 system('cls') or None
 
 def notas(*n,sit=False):
+    '''
+    -> Função para analisar as notas e situações de vários alunos.
+    :param n: uma ou mais notas dos alunos (aceita várias)
+    :param sit: valor opcional, indicando se deve ou não adicionar a situação
+    :return: dicionário com várias informações sobre a situação da turma
+    '''
     dict= {}
     dict['total'] = len(*n)
-    
-    for pos,valor in enumerate(*n):
-        if pos ==0:
-            maior = valor
-            menor = valor
-        else:
-            if maior <= valor:
-                maior = valor
-            if menor >= valor:
-                menor = valor
-
-    dict['maior'] = maior
-    dict['menor'] = menor
+    dict['maior'] = max(*n)
+    dict['menor'] = min(*n)
     dict['media'] = sum(*n)/len(*n)
     if sit ==True:
         if dict['media'] <5:
@@ -26,9 +21,6 @@ def notas(*n,sit=False):
             dict['situacao'] = 'Razoavel' 
 
     print(dict)
-
-
-
 array = []
 n = int(input(f'Quantas notas deseja adicionar: '))
 for i in range(n):

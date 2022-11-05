@@ -2,20 +2,24 @@ from os import system
 system('cls') or None
 
 
-def fat(number,show=False):
+def fat(n,show=False):
     """
     number será o numero calculado
     show é opcional para mostrar a conta
     return retorna o fatorial do numero
     """
-    if number ==0 or number == 1:
-        return number
-    if show==True:
-        print(number)
-        return number * fat(number-1,show=True)
-    return number * fat(number-1)
+    f=1
+    for c in range(n,0,-1):
+        if show:
+            print(c,end='')
+            if c>1:
+                print(' x ',end= '')
+            else:
+                print(' = ',end='')
+        f *= c
+    return f
 
 
 n1 = int(input(f'Fatorial de: '))
 print(fat(n1,show=True))
-print(help(fat))
+help(fat)
