@@ -43,8 +43,8 @@ def resumo(p,a,r):
     print(f'Preço analisado:{"R$":>12}{pformat(p)}')
     print(f'Metade do preço:{"R$":>12}{metade(p,1)}')
     print(f'Dobro do preço: {"R$":>12}{dobro(p,1)}')
-    print(f'10% de aumento: {"R$":>12}{aumentar(p,10,1)}')
-    print(f'35% de redução: {"R$":>12}{reduzir(p,35,1)}')
+    print(f'10% de aumento: {"R$":>12}{aumentar(p,a,1)}')
+    print(f'35% de redução: {"R$":>12}{reduzir(p,r,1)}')
 
 
 def pformat(p):
