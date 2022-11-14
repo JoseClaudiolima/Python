@@ -24,5 +24,6 @@ def menu(lista):
         print(f'\033[33m{c}\033[m - \033[34m{item}\33[m')
         c +=1
     print(linha())
-    opc = leiaint('\033[32mSua Opção: ')
+    opc = leiaint('\033[32mSua Opção: \33[m')
     return opc
+    
